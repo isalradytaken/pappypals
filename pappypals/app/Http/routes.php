@@ -15,7 +15,7 @@ Route::get('/', [
     'uses' => '\App\Http\Controllers\HomeControllers@home', 
     'as' => 'home', 
 
-]);
+])->middleware('securitycheck');
 
 Route::get('/alert', function(){
   return redirect()->route('home')->with('info', 'knazz');
@@ -47,27 +47,27 @@ Route::get('/playModule', [
 Route::get('/articles', [
     'uses' => '\App\Http\Controllers\HomeControllers@getarticles', 
     'as' => 'articles', 
-]);
+])->middleware('securitycheck');
 
 Route::get('/activities', [
     'uses' => '\App\Http\Controllers\HomeControllers@getactivities', 
     'as' => 'activities', 
-]);
+])->middleware('securitycheck');
 
 Route::get('/playTogether', [
     'uses' => '\App\Http\Controllers\HomeControllers@getplayTogether', 
     'as' => 'playTogether', 
-]);
+])->middleware('securitycheck');
 
 Route::get('/videos', [
     'uses' => '\App\Http\Controllers\HomeControllers@getvideos', 
     'as' => 'videos', 
-]);
+])->middleware('securitycheck');
 
 Route::get('/EQ', [
     'uses' => '\App\Http\Controllers\HomeControllers@getEQ', 
     'as' => 'EQ', 
-]);
+])->middleware('securitycheck');
 
 Route::get('/signup',[
     'uses' => '\App\Http\Controllers\AuthControllers@getSignup', 
@@ -114,7 +114,7 @@ Route::get('/my-accounts',[
     'uses' => '\App\Http\Controllers\My_AccountControllers@getMy_Accounts', 
     'as' => 'Account.create-account',  
    // 'middleware' => ['guest'], 
-]);
+])->middleware('securitycheck');
 
 
 /******
@@ -122,13 +122,13 @@ Route::get('/my-accounts',[
 * PATMENT  
 *
 ******************************/ 
-Route::group(['prefix' => 'account'], function()
+Route::group(['prefix' => 'account','middleware' => ['securitycheck']], function()
 {
     Route::get('/',['uses' => '\App\Http\Controllers\PaymentControllers@getAccounts', 'as' => 'subscription',  ]);
     Route::post('/',['uses' => '\App\Http\Controllers\PaymentControllers@postjoin',]);
 });
 
-Route::group(['prefix' => 'profile'], function()
+Route::group(['prefix' => 'profile','middleware' => ['securitycheck']], function()
 {
     Route::get('/',['uses' => '\App\Http\Controllers\PaymentControllers@getprofile', 'as' => 'profileSubscription', ]);
     Route::post('/',['uses' => '\App\Http\Controllers\PaymentControllers@postjoin', ]);
@@ -156,7 +156,7 @@ Route::group(['prefix' => 'SecurityCheck'], function()
         'uses' => '\App\Http\Controllers\AuthControllers@getSecurtyCheck', 
         'as' => 'subscription',  
         //'middleware' => ['guest'], 
-    ]);
+    ])->name('chk_security');
 
     Route::post('/',[
         'uses' => '\App\Http\Controllers\AuthControllers@postSecurtyCheck', 

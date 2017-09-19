@@ -22,14 +22,14 @@ class PaymentControllers extends Controller
 
 	public function getAccounts()
 	{
-        $loginTime =  new Carbon(Session::get('LoginTime'));
-        $diff = $loginTime->diffInMinutes(Carbon::now());
+//        $loginTime =  new Carbon(Session::get('LoginTime'));
+//        $diff = $loginTime->diffInMinutes(Carbon::now());
         //after 15 minutes a password security check will be ask.
         //TO DO move settings to a model/ migration to have it centriliced?
-        if($diff > 15)
-        {
-             return redirect('SecurityCheck');
-        }
+//        if($diff > 15)
+//        {
+//             return redirect('SecurityCheck');
+//        }
         
         
 
