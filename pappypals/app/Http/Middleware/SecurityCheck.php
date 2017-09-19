@@ -21,6 +21,7 @@ class SecurityCheck
        $security_detect_url = [
            URL::to('subusers'),
            URL::to('/'),
+           URL::to('/signin'),
        ];       
        $referer_url = rtrim($request->headers->get('referer'),'/');
        if(in_array($referer_url, $security_detect_url)){
