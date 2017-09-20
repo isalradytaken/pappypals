@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Models\User;
 use Auth;
@@ -14,25 +13,22 @@ class PaymentControllers extends Controller
 {
  
 	protected $user;  
-
 	public function __construct()
 	{
 	    $this->user = Auth::user();
 	}
-
 	public function getAccounts()
 	{
-        $loginTime =  new Carbon(Session::get('LoginTime'));
-        $diff = $loginTime->diffInMinutes(Carbon::now());
+//        $loginTime =  new Carbon(Session::get('LoginTime'));
+//        $diff = $loginTime->diffInMinutes(Carbon::now());
         //after 15 minutes a password security check will be ask.
         //TO DO move settings to a model/ migration to have it centriliced?
-        if($diff > 15)
-        {
-             return redirect('SecurityCheck');
-        }
+//        if($diff > 15)
+//        {
+//             return redirect('SecurityCheck');
+//        }
         
         
-
 	   	if(Auth::check() && $this->user->subscribed()){
        
                $data = array(
@@ -53,8 +49,6 @@ class PaymentControllers extends Controller
 	   		return view('pages.payment.join')->with('user', $this->user);
 	   	}
 	}
-
-
 	public function getprofile()
 	{
      	   	if(Auth::check() && $this->user->subscribed()){
@@ -87,14 +81,11 @@ class PaymentControllers extends Controller
 		    return back()->with('info',$e->getMessage());
 		}
 	}
-
 	public function canceljoin()
 	{
 		$this->user->subscription()->cancel();
-
 		return back()->with('info','Subscription is now unsubscribed.');
 	}
-
 	public function upgrade()
 	{
         $this->user->subscription('test')->swap();

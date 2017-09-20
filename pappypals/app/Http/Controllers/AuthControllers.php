@@ -155,7 +155,7 @@ class AuthControllers extends Controller
 
   public function getPassword()
   {
-      return view('Auth.changePassword');
+      return view('pages.payment.join');
   }
 
   public function getSecurtyCheck()
@@ -163,16 +163,16 @@ class AuthControllers extends Controller
       $messages =array(
 '1'  =>''
 );
-      //if(Session::get('firstlogin') ==true)
-      //{
+      if(Session::get('firstlogin') ==true)
+      {
          
-      //    Session::set('firstlogin', false);
-      //  //  return view('pages.payment.join')->with('user',  Auth::user());
-      //    return redirect()->route('subscription')->with('info', 'logged in');
-      //}else{
+          Session::set('firstlogin', false);
+          return view('pages.payment.join')->with('user',  Auth::user());
+          return redirect()->route('subscription')->with('info', 'logged in');
+      }else{
           return view('Auth.SecurityCheck')->with('messages', $messages);
           
-      //}
+      }
 
      
   }

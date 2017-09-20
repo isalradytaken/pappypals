@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Http;
-
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-
 class Kernel extends HttpKernel
 {
     /**
@@ -18,9 +15,7 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\VerifyCsrfToken::class,
-
     ];
-
     /**
      * The application's route middleware.
      *
@@ -31,5 +26,6 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'securitycheck' => \App\Http\Middleware\SecurityCheck::class
     ];
 }
