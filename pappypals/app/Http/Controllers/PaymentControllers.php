@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Exception;
 use Carbon;
 use Session;
+use Log;
 /**
 * Homecontroller
 */
@@ -28,7 +29,8 @@ class PaymentControllers extends Controller
 //             return redirect('SecurityCheck');
 //        }
         
-        
+                 Log::info(Auth::check());
+        	Log::info($this->user->subscribed());
 	   	if(Auth::check() && $this->user->subscribed()){
        
                $data = array(
