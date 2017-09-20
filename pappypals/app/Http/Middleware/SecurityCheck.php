@@ -1,11 +1,21 @@
 <?php
+<<<<<<< HEAD
 namespace App\Http\Middleware;
+=======
+
+namespace App\Http\Middleware;
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use URL;
 class SecurityCheck
 {
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
     /**
      * Handle an incoming request.
      *
@@ -26,4 +36,8 @@ class SecurityCheck
        }
        return $next($request);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d

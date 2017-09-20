@@ -13,7 +13,13 @@ use Illuminate\Http\Request;
 Route::get('/', [
     'uses' => '\App\Http\Controllers\HomeControllers@home', 
     'as' => 'home', 
+<<<<<<< HEAD
 ])->middleware('securitycheck');
+=======
+
+])->middleware('securitycheck');
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::get('/alert', function(){
   return redirect()->route('home')->with('info', 'knazz');
 });
@@ -42,22 +48,42 @@ Route::get('/articles', [
     'uses' => '\App\Http\Controllers\HomeControllers@getarticles', 
     'as' => 'articles', 
 ])->middleware('securitycheck');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::get('/activities', [
     'uses' => '\App\Http\Controllers\HomeControllers@getactivities', 
     'as' => 'activities', 
 ])->middleware('securitycheck');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::get('/playTogether', [
     'uses' => '\App\Http\Controllers\HomeControllers@getplayTogether', 
     'as' => 'playTogether', 
 ])->middleware('securitycheck');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::get('/videos', [
     'uses' => '\App\Http\Controllers\HomeControllers@getvideos', 
     'as' => 'videos', 
 ])->middleware('securitycheck');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::get('/EQ', [
     'uses' => '\App\Http\Controllers\HomeControllers@getEQ', 
     'as' => 'EQ', 
 ])->middleware('securitycheck');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::get('/signup',[
     'uses' => '\App\Http\Controllers\AuthControllers@getSignup', 
     'as' => 'getsignup',
@@ -98,6 +124,11 @@ Route::get('/my-accounts',[
     'as' => 'Account.create-account',  
    // 'middleware' => ['guest'], 
 ])->middleware('securitycheck');
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 /******
 *
 * PATMENT  
@@ -108,6 +139,10 @@ Route::group(['prefix' => 'account','middleware' => ['securitycheck']], function
     Route::get('/',['uses' => '\App\Http\Controllers\PaymentControllers@getAccounts', 'as' => 'subscription',  ]);
     Route::post('/',['uses' => '\App\Http\Controllers\PaymentControllers@postjoin',]);
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
 Route::group(['prefix' => 'profile','middleware' => ['securitycheck']], function()
 {
     Route::get('/',['uses' => '\App\Http\Controllers\PaymentControllers@getprofile', 'as' => 'profileSubscription', ]);
@@ -132,6 +167,10 @@ Route::group(['prefix' => 'SecurityCheck'], function()
         'as' => 'subscription',  
         //'middleware' => ['guest'], 
     ])->name('chk_security');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 046ff920df7ecc41fc536e72e52e15fbb575f76d
     Route::post('/',[
         'uses' => '\App\Http\Controllers\AuthControllers@postSecurtyCheck', 
         //'middleware' => ['guest'], 
